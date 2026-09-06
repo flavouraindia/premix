@@ -9,7 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
-    /* CSS RESET & BRAND DESIGN SYSTEM */
     :root {
       --brand-red: #B8252A;
       --brand-red-dark: #8E1B1F;
@@ -50,29 +49,16 @@
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
-      padding: 1rem 5%;
+      padding: 0.8rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .brand-logo {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--brand-red);
-      letter-spacing: 1px;
-    }
-
-    .brand-logo span {
+    .brand-logo img {
+      height: 48px;
+      width: auto;
       display: block;
-      font-family: var(--font-body);
-      font-size: 0.75rem;
-      color: var(--brand-gold);
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-top: -4px;
     }
 
     nav {
@@ -172,14 +158,22 @@
       flex-wrap: wrap;
     }
 
-    .hero-image img {
-      width: 100%;
+    .hero-image {
+      background: #FFFFFF;
       border-radius: var(--radius);
+      padding: 2rem;
       box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
+      text-align: center;
     }
 
-    /* VALUE PROPS BAR */
+    .hero-image img {
+      max-width: 100%;
+      height: 380px;
+      object-fit: contain;
+    }
+
+    /* TRUST BAR */
     .trust-bar {
       background: #FFFFFF;
       border-top: 1px solid var(--border-color);
@@ -207,7 +201,7 @@
       color: var(--brand-gray);
     }
 
-    /* CATALOGUE & CATALOG GRID */
+    /* PRODUCTS GRID */
     .products-section {
       padding: 5rem 5%;
       max-width: 1280px;
@@ -257,8 +251,8 @@
 
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
     }
 
     .product-card {
@@ -277,17 +271,20 @@
     }
 
     .product-img {
-      position: relative;
       width: 100%;
-      background: #FAF8F5;
+      height: 280px;
+      background: #FAFAFA;
       border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
     }
 
     .product-img img {
-      width: 100%;
-      height: auto;
-      display: block;
-      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
     }
 
     .product-details {
@@ -299,13 +296,13 @@
 
     .product-title {
       font-family: var(--font-heading);
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       color: var(--brand-dark);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .product-desc {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--brand-gray);
       margin-bottom: 1.2rem;
       flex-grow: 1;
@@ -320,7 +317,7 @@
       padding-top: 1rem;
     }
 
-    /* 3-STEP PROCESS */
+    /* HOW IT WORKS */
     .how-it-works {
       background: #F8F3EC;
       padding: 5rem 5%;
@@ -392,7 +389,6 @@
       font-size: 0.8rem;
     }
 
-    /* RESPONSIVE */
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
@@ -419,8 +415,7 @@
   <!-- HEADER -->
   <header>
     <div class="brand-logo">
-      FLAVOURA
-      <span>Swaad Jo Maa Ki Yaad Dilae</span>
+      <img src="https://lh3.googleusercontent.com/d/1BOQm9Xw0A_eFbhqlFRYokwxuVke2cYJ3" alt="Flavoura Logo">
     </div>
     <nav>
       <a href="#catalogue">Premix Range</a>
@@ -435,17 +430,16 @@
   <!-- HERO SECTION -->
   <section class="hero">
     <div class="hero-text">
-      <span class="tagline-badge">Your Shortcut To Authentic Curries</span>
+      <span class="tagline-badge">Swaad Jo Maa Ki Yaad Dilae</span>
       <h1>Restaurant-Quality Dishes at Home in Minutes.</h1>
       <p>Handcrafted instant premix masalas made with real cashews, almonds, whole spices, and fried onions. Zero preservatives, zero hassle—just marinate and cook!</p>
       <div class="hero-ctas">
-        <a href="#catalogue" class="btn btn-primary">Browse All Premixes</a>
+        <a href="#catalogue" class="btn btn-primary">Browse Premix Range</a>
         <a href="https://youtube.com/@arshiaahmad" target="_blank" class="btn btn-whatsapp" style="background:#FF0000;">Watch Video Recipes ➔</a>
       </div>
     </div>
     <div class="hero-image">
-      <!-- Smoked Angaara Premix Hero Showcase -->
-      <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Flavoura Instant Premix Masala Collection">
+      <img src="https://lh3.googleusercontent.com/d/111111111" id="hero-img-swap" alt="Flavoura White Gravy Premix">
     </div>
   </section>
 
@@ -458,7 +452,7 @@
       </div>
       <div class="trust-item">
         <h4>⏱ Ready in 10-15 Mins</h4>
-        <p>Onion, ginger, garlic, and whole spices pre-blended.</p>
+        <p>Onion, ginger, garlic, and spices pre-blended.</p>
       </div>
       <div class="trust-item">
         <h4>🥬 Veg & Non-Veg Compatible</h4>
@@ -471,139 +465,137 @@
     </div>
   </section>
 
-  <!-- CATALOGUE & PRODUCT SHOWCASE -->
+  <!-- CATALOGUE -->
   <section class="products-section" id="catalogue">
     <div class="section-header">
       <h2>Explore The Premix Collection</h2>
-      <p>Click on any variant to read instructions, ingredients, or order directly via WhatsApp.</p>
+      <p>Click on any variant to order directly via WhatsApp.</p>
     </div>
 
-    <!-- TABS -->
     <div class="filter-tabs">
       <button class="tab-btn active" onclick="filterProducts('all')">All Premixes</button>
       <button class="tab-btn" onclick="filterProducts('gravy')">Base Gravies</button>
       <button class="tab-btn" onclick="filterProducts('tikka')">Starters & Tikkas</button>
     </div>
 
-    <!-- PRODUCT GRID -->
     <div class="product-grid">
 
-      <!-- 1. Smoked Angaara -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Smoked Angaara Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Smoked Angaara Premix</h3>
-          <p class="product-desc">Smoky, rich, restaurant-style marinade enriched with cashews, almonds, and aromatic whole spices.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">40g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Smoked%20Angaara%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2. Achaari -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1ZnNnrIqWTiJEBpkotLc4nMMLosV-teOf" alt="Achaari Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Achaari Premix</h3>
-          <p class="product-desc">Tangy, zesty pickled flavor base infused with methi daana, saunf, zeera, mustard, and kalaunji.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3. Fish Fry -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1Xx_wRaCQPwC4atWtM78wU3_eIwmqkqtJ" alt="Fish Fry Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Fish Fry Premix</h3>
-          <p class="product-desc">Coastal, crispy, and lightly spiced marinade blended with ajwain, rai, cumin, and Kashmiri chilli.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">20g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4. Haryali -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1-Bp9S8xpvU_6RDROChkUgNHCihqxV3ll" alt="Haryali Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Haryali Premix</h3>
-          <p class="product-desc">Fresh, minty green kebab marinade crafted with green chilli, kaju powder, fried onion, and spices.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">30g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 5. Tandoori -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Tandoori Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Tandoori Premix</h3>
-          <p class="product-desc">Tangy, deeply spiced classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli powder.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">30g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6. Golden Gravy -->
+      <!-- White Gravy -->
       <div class="product-card" data-category="gravy">
         <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/16wIt0J11hHrotCGwzUEMVMxGOMkC9cDB" alt="Golden Gravy Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Golden Gravy Premix</h3>
-          <p class="product-desc">Rich cashew, melon seed & white sesame gravy base. Perfect for Shahi Paneer, Mix Veg, or Chicken.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 7. Red Gravy -->
-      <div class="product-card" data-category="gravy">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Red Gravy Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Red Gravy Premix</h3>
-          <p class="product-desc">Classic North Indian style gravy base with cashew, white sesame, milk powder, and red chilli.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Red%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8. White Gravy -->
-      <div class="product-card" data-category="gravy">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1aji77tplyuewCGq5Utjl1_o500Up-AcC" alt="White Gravy Instant Premix">
+          <img src="https://lh3.googleusercontent.com/d/1ZnNnrIqWTiJEBpkotLc4nMMLosV-teOf" alt="White Gravy Instant Premix">
         </div>
         <div class="product-details">
           <h3 class="product-title">White Gravy Premix</h3>
           <p class="product-desc">Velvety Mughlai style gravy made with cashew, melon seeds, white sesame, and aromatic spices.</p>
           <div class="product-action">
             <span style="font-weight:700;">60g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20White%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order on WhatsApp</a>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20White%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Red Gravy -->
+      <div class="product-card" data-category="gravy">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Red Gravy Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Red Gravy Premix</h3>
+          <p class="product-desc">Classic North Indian style gravy base with cashew, white sesame, milk powder, and red chilli.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">80g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Red%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tandoori -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1SDIxz_5Td3mHqZLl5Pi-LBLUPtnjJ1wW" alt="Tandoori Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Tandoori Premix</h3>
+          <p class="product-desc">Tangy, deeply spiced classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli powder.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">30g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Haryali -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1rmVdIN9BQxlbXgLN6IM0OX1A5E46PK6q" alt="Haryali Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Haryali Premix</h3>
+          <p class="product-desc">Fresh, minty green kebab marinade crafted with green chilli, kaju powder, fried onion, and spices.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">30g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Gravy -->
+      <div class="product-card" data-category="gravy">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1AtIqdvmWTJBsqtHeWW-3201oYfc_F89g" alt="Golden Gravy Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Golden Gravy Premix</h3>
+          <p class="product-desc">Rich cashew, melon seed & white sesame gravy base. Perfect for Shahi Paneer, Mix Veg, or Chicken.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">80g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fish Fry -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Fish Fry Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Fish Fry Premix</h3>
+          <p class="product-desc">Coastal, crispy, and lightly spiced marinade blended with ajwain, rai, cumin, and Kashmiri chilli.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">20g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Smoked Angaara -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Smoked Angaara Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Smoked Angaara Premix</h3>
+          <p class="product-desc">Smoky, rich, restaurant-style marinade enriched with cashews, almonds, and aromatic whole spices.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">40g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Smoked%20Angaara%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Achaari -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1aji77tplyuewCGq5Utjl1_o500Up-AcC" alt="Achaari Instant Premix">
+        </div>
+        <div class="product-details">
+          <h3 class="product-title">Achaari Premix</h3>
+          <p class="product-desc">Tangy, zesty pickled flavor base infused with methi daana, saunf, zeera, mustard, and kalaunji.</p>
+          <div class="product-action">
+            <span style="font-weight:700;">80g Pack</span>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
           </div>
         </div>
       </div>
@@ -621,17 +613,17 @@
       <div class="step-card">
         <div class="step-number">1</div>
         <h3>Marinate</h3>
-        <p>Mix the premix with curd, water, or lemon juice and your choice of protein or vegetables.</p>
+        <p>Mix premix with curd, water, or lemon juice along with your main ingredient.</p>
       </div>
       <div class="step-card">
         <div class="step-number">2</div>
         <h3>Add Oil</h3>
-        <p>Heat oil or butter in a pan or cooker according to specific pack directions.</p>
+        <p>Heat oil or butter in a pan according to pack instructions.</p>
       </div>
       <div class="step-card">
         <div class="step-number">3</div>
         <h3>Cook & Serve</h3>
-        <p>Simmer on low flame until tender. Serve hot with naan, paratha, or rice!</p>
+        <p>Simmer on low flame until cooked. Serve piping hot with naan or rice!</p>
       </div>
     </div>
   </section>
@@ -661,8 +653,10 @@
     </div>
   </footer>
 
-  <!-- SIMPLE FILTER SCRIPT -->
   <script>
+    // Hero image fallback link
+    document.getElementById('hero-img-swap').src = "https://lh3.googleusercontent.com/d/1ZnNnrIqWTiJEBpkotLc4nMMLosV-teOf";
+
     function filterProducts(category) {
       const buttons = document.querySelectorAll('.tab-btn');
       buttons.forEach(btn => btn.classList.remove('active'));

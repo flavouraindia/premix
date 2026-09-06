@@ -67,11 +67,6 @@
       align-items: center;
     }
 
-    nav a {
-      font-weight: 500;
-      font-size: 0.9rem;
-    }
-
     /* BUTTONS */
     .btn {
       padding: 0.75rem 1.4rem;
@@ -101,7 +96,7 @@
       color: white;
     }
 
-    /* HERO SECTION RESTRUCTURED */
+    /* HERO SECTION */
     .hero-container {
       position: relative;
       padding: 1rem 4% 3rem;
@@ -110,7 +105,6 @@
       overflow: hidden;
     }
 
-    /* TRANSPARENT BACKDROP TEXT */
     .hero-backdrop-text {
       position: absolute;
       top: 0px;
@@ -196,33 +190,12 @@
     .trust-item h4 {
       font-size: 1rem;
       color: var(--brand-dark);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.3rem;
     }
 
     .trust-item p {
-      font-size: 0.85rem;
+      font-size: 0.88rem;
       color: var(--brand-gray);
-    }
-
-    .veg-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      color: #2e7d32;
-      font-weight: 700;
-      font-size: 0.85rem;
-      background: #e8f5e9;
-      padding: 4px 12px;
-      border-radius: 20px;
-      border: 1px solid #c8e6c9;
-      margin-top: 4px;
-    }
-
-    .veg-dot {
-      width: 10px;
-      height: 10px;
-      background: #2e7d32;
-      border-radius: 50%;
     }
 
     /* PRODUCTS GRID */
@@ -268,7 +241,7 @@
       border-color: var(--brand-red);
     }
 
-    /* PRODUCT CARDS (Optimized 9:16 Aspect Ratio) */
+    /* PRODUCT CARDS (Optimized Zoom & Crop) */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
@@ -281,7 +254,7 @@
       border: 1px solid var(--border-color);
       overflow: hidden;
       display: flex;
-      flex-direction: row; /* Mobile friendly horizontal split */
+      flex-direction: row;
       align-items: stretch;
       box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
@@ -294,14 +267,17 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 0.6rem;
+      overflow: hidden;
       flex-shrink: 0;
+      position: relative;
     }
 
     .product-img img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.65); /* Zooms into the bottle to fill the box */
+      display: block;
     }
 
     .product-details {
@@ -487,8 +463,7 @@
       </div>
       <div class="trust-item">
         <h4>🌿 100% Pure Vegetarian</h4>
-        <div class="veg-badge"><span class="veg-dot"></span> 100% Veg Premix</div>
-        <p style="margin-top:4px;">Premix is 100% veg. Great for Paneer, Veggies, Chicken & Fish!</p>
+        <p>Premix is 100% veg. Great for Paneer, Veggies, Chicken & Fish!</p>
       </div>
       <div class="trust-item">
         <h4>🎓 Hostel & Busy Life Friendly</h4>
@@ -711,7 +686,7 @@
       </div>
       <div class="footer-col">
         <h3>FSSAI Compliance</h3>
-        <p><strong>FSSAI Lic No:</strong> 22824038000288</p>
+        <p><strong>FSSAI Reg No:</strong> 22824038000288</p>
       </div>
     </div>
     <div class="footer-bottom">

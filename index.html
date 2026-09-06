@@ -241,10 +241,10 @@
       border-color: var(--brand-red);
     }
 
-    /* PRODUCT CARDS (Optimized Zoom & Crop) */
+    /* PRODUCT CARDS */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
       gap: 1.5rem;
     }
 
@@ -260,7 +260,7 @@
     }
 
     .product-img {
-      width: 42%;
+      width: 40%;
       aspect-ratio: 9 / 16;
       background: #FAF7F2;
       border-right: 1px solid var(--border-color);
@@ -276,7 +276,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.65); /* Zooms into the bottle to fill the box */
+      transform: scale(1.65);
       display: block;
     }
 
@@ -285,21 +285,49 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 58%;
+      width: 60%;
     }
 
     .product-title {
       font-family: var(--font-heading);
       font-size: 1.15rem;
       color: var(--brand-dark);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
       line-height: 1.2;
     }
 
     .product-desc {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--brand-gray);
-      margin-bottom: 0.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* QUICK METHOD / RECIPE CHEAT SHEET BOX */
+    .quick-method-box {
+      background: #FAF7F2;
+      border-radius: 8px;
+      padding: 0.5rem;
+      margin-bottom: 0.6rem;
+      border: 1px solid #EFE4D6;
+    }
+
+    .quick-method-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--brand-red);
+      letter-spacing: 0.5px;
+      margin-bottom: 0.2rem;
+    }
+
+    .quick-method-steps {
+      font-size: 0.73rem;
+      color: #4A423E;
+      line-height: 1.35;
+    }
+
+    .quick-method-steps span {
+      display: block;
     }
 
     .price-tag {
@@ -316,8 +344,7 @@
 
     .product-action {
       border-top: 1px dashed var(--border-color);
-      padding-top: 0.6rem;
-      margin-top: 0.4rem;
+      padding-top: 0.5rem;
       display: flex;
       flex-direction: column;
       gap: 0.4rem;
@@ -435,12 +462,10 @@
   <section class="hero-container">
     <div class="hero-backdrop-text">INSTANT PREMIX MASALA</div>
     
-    <!-- Hero Banner Image at Top -->
     <div class="hero-banner-wrap">
       <img src="https://lh3.googleusercontent.com/d/1w2JZ8WLBr-N9BgoWaOgVI7PIiAXLR2yW" alt="Flavoura Instant Premixes and Dishes Showcase">
     </div>
 
-    <!-- Hero Content Below Image -->
     <div class="hero-content">
       <h1>Delicious Meals in Minutes. Zero Prep Needed.</h1>
       <p>Fried onions, ginger, garlic, cashews, and whole spices are pre-blended inside! Perfect for college students, busy professionals, hostelers, and late-night craving fixes.</p>
@@ -500,31 +525,20 @@
           <div>
             <h3 class="product-title">White Gravy</h3>
             <p class="product-desc">Rich Mughlai gravy with cashew, melon seeds, and white sesame.</p>
+            
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• <strong>Paneer:</strong> Mix 60g premix + milk paste. Cook in butter/oil until thick, add 500g Paneer.</span>
+                <span>• <strong>Chicken:</strong> Marinate 500g chicken with 60g premix + 200g curd. Cook in butter/oil.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
               <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
             </div>
             <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20White%20Gravy%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Golden Gravy -->
-      <div class="product-card" data-category="gravy">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1AtIqdvmWTJBsqtHeWW-3201oYfc_F89g" alt="Golden Gravy Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Golden Gravy</h3>
-            <p class="product-desc">Rich cashew & sesame base. Great for Shahi Paneer, Veggies or Chicken.</p>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -538,12 +552,46 @@
           <div>
             <h3 class="product-title">Red Gravy</h3>
             <p class="product-desc">Classic North Indian gravy base with cashews, milk powder, and red chilli.</p>
+            
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• <strong>Veg/Paneer:</strong> Cook 400g tomato puree in oil. Add 80g premix water-paste + 500g Paneer/Veg.</span>
+                <span>• <strong>Chicken:</strong> Marinate 500g chicken with 80g premix + curd/water. Add to cooked tomato puree.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
               <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
             </div>
             <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Red%20Gravy%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Golden Gravy -->
+      <div class="product-card" data-category="gravy">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1AtIqdvmWTJBsqtHeWW-3201oYfc_F89g" alt="Golden Gravy Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Golden Gravy</h3>
+            <p class="product-desc">Rich cashew & sesame base. Great for Shahi Paneer, Veggies or Chicken.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 400g Tomato Puree + 80g Premix (entire bottle) + 500g Protein/Veg. Cook in oil until thick.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -557,6 +605,13 @@
           <div>
             <h3 class="product-title">Achaari Premix</h3>
             <p class="product-desc">Tangy, zesty pickle flavor base with saunf, zeera, mustard & kalaunji.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 400g Tomato Puree + 500g Protein + 80g Premix (entire bottle). Sauté & cook in oil.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
@@ -576,6 +631,13 @@
           <div>
             <h3 class="product-title">Haryali Premix</h3>
             <p class="product-desc">Fresh minty green marinade with green chilli, kaju, and fried onion.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Protein + 60g Premix (full bottle). Add oil/butter, pan fry & cook.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
@@ -595,6 +657,13 @@
           <div>
             <h3 class="product-title">Angaara Premix</h3>
             <p class="product-desc">Rich restaurant-style marinade with cashews, almonds, and spices.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Protein + 80g Premix (full bottle) + 200g Thick Curd. Cook till tender.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
@@ -614,6 +683,13 @@
           <div>
             <h3 class="product-title">Fish Fry Premix</h3>
             <p class="product-desc">Crispy marinade with ajwain, rai, cumin, and Kashmiri chilli.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Fish Slices + 20g Premix (1/3 bottle) + 1 tbsp Lemon Juice. Shallow pan-fry.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>
@@ -633,6 +709,13 @@
           <div>
             <h3 class="product-title">Tandoori Premix</h3>
             <p class="product-desc">Classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Chicken/Paneer + 30g Premix (1/2 bottle) + 200g Curd + Lemon juice. Cook in pan.</span>
+              </div>
+            </div>
           </div>
           <div class="product-action">
             <div>

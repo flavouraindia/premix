@@ -6,7 +6,7 @@
   <title>Flavoura | Instant Cooking Premixes</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   
   <style>
     :root {
@@ -19,7 +19,7 @@
       --border-color: #EFE8DC;
       --font-heading: 'Playfair Display', serif;
       --font-body: 'Outfit', sans-serif;
-      --shadow: 0 12px 30px rgba(0,0,0,0.06);
+      --shadow: 0 10px 25px rgba(0,0,0,0.06);
       --radius: 16px;
     }
 
@@ -33,7 +33,7 @@
       font-family: var(--font-body);
       background-color: var(--brand-cream);
       color: var(--brand-dark);
-      line-height: 1.6;
+      line-height: 1.5;
     }
 
     a {
@@ -45,49 +45,45 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 253, 249, 0.95);
+      background: rgba(255, 253, 249, 0.98);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border-color);
       z-index: 1000;
-      padding: 0.8rem 5%;
+      padding: 0.7rem 4%;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .brand-logo img {
-      height: 48px;
+      height: 42px;
       width: auto;
       display: block;
     }
 
     nav {
       display: flex;
-      gap: 1.5rem;
+      gap: 1.2rem;
       align-items: center;
     }
 
     nav a {
       font-weight: 500;
-      font-size: 0.95rem;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: var(--brand-red);
+      font-size: 0.9rem;
     }
 
     /* BUTTONS */
     .btn {
-      padding: 0.8rem 1.6rem;
+      padding: 0.75rem 1.4rem;
       border-radius: 50px;
       font-weight: 600;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.25s ease;
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
+      justify-content: center;
+      gap: 0.4rem;
       border: none;
     }
 
@@ -98,8 +94,6 @@
 
     .btn-primary:hover {
       background: var(--brand-red-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(184, 37, 42, 0.25);
     }
 
     .btn-whatsapp {
@@ -107,63 +101,42 @@
       color: white;
     }
 
-    .btn-whatsapp:hover {
-      background: #1EBE5B;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.25);
-    }
-
-    /* HERO SECTION */
-    .hero {
-      padding: 4rem 5% 5rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+    /* HERO SECTION RESTRUCTURED */
+    .hero-container {
+      position: relative;
+      padding: 1rem 4% 3rem;
       max-width: 1280px;
       margin: 0 auto;
+      overflow: hidden;
     }
 
-    .tagline-badge {
-      display: inline-block;
-      background: #FDF3E7;
-      color: var(--brand-gold);
-      padding: 6px 16px;
-      border-radius: 50px;
-      font-weight: 700;
-      font-size: 0.85rem;
-      margin-bottom: 1.5rem;
+    /* TRANSPARENT BACKDROP TEXT */
+    .hero-backdrop-text {
+      position: absolute;
+      top: 0px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: clamp(2.5rem, 8vw, 6.5rem);
+      font-weight: 800;
+      color: transparent;
+      -webkit-text-stroke: 1.5px rgba(184, 37, 42, 0.12);
       text-transform: uppercase;
-      letter-spacing: 1.5px;
-      border: 1px solid rgba(212, 140, 40, 0.2);
-    }
-
-    .hero-text h1 {
-      font-family: var(--font-heading);
-      font-size: 3.2rem;
-      line-height: 1.15;
-      color: var(--brand-dark);
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-text p {
-      font-size: 1.15rem;
-      color: var(--brand-gray);
-      margin-bottom: 2rem;
-    }
-
-    .hero-ctas {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
+      white-space: nowrap;
+      pointer-events: none;
+      z-index: 0;
+      letter-spacing: 2px;
     }
 
     .hero-banner-wrap {
+      position: relative;
+      z-index: 1;
       width: 100%;
       border-radius: var(--radius);
       overflow: hidden;
       box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
+      margin-top: 1.5rem;
+      margin-bottom: 2rem;
       background: #FFF;
     }
 
@@ -174,74 +147,119 @@
       object-fit: cover;
     }
 
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      color: var(--brand-dark);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-content p {
+      font-size: 1.05rem;
+      color: var(--brand-gray);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 0.8rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     /* TRUST BAR */
     .trust-bar {
       background: #FFFFFF;
       border-top: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
-      padding: 2.5rem 5%;
+      padding: 2rem 4%;
     }
 
     .trust-container {
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
       text-align: center;
     }
 
     .trust-item h4 {
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: var(--brand-dark);
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.2rem;
     }
 
     .trust-item p {
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       color: var(--brand-gray);
+    }
+
+    .veg-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #2e7d32;
+      font-weight: 700;
+      font-size: 0.85rem;
+      background: #e8f5e9;
+      padding: 4px 12px;
+      border-radius: 20px;
+      border: 1px solid #c8e6c9;
+      margin-top: 4px;
+    }
+
+    .veg-dot {
+      width: 10px;
+      height: 10px;
+      background: #2e7d32;
+      border-radius: 50%;
     }
 
     /* PRODUCTS GRID */
     .products-section {
-      padding: 5rem 5%;
+      padding: 3.5rem 4%;
       max-width: 1280px;
       margin: 0 auto;
     }
 
     .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
     }
 
     .section-header h2 {
       font-family: var(--font-heading);
-      font-size: 2.5rem;
+      font-size: 2.2rem;
       color: var(--brand-dark);
-      margin-bottom: 0.5rem;
-    }
-
-    .section-header p {
-      color: var(--brand-gray);
+      margin-bottom: 0.4rem;
     }
 
     .filter-tabs {
       display: flex;
       justify-content: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2.5rem;
     }
 
     .tab-btn {
-      padding: 0.6rem 1.8rem;
+      padding: 0.5rem 1.4rem;
       border-radius: 50px;
       border: 1px solid var(--border-color);
       background: white;
       cursor: pointer;
       font-weight: 600;
+      font-size: 0.88rem;
       color: var(--brand-gray);
-      transition: all 0.3s;
     }
 
     .tab-btn.active, .tab-btn:hover {
@@ -250,10 +268,11 @@
       border-color: var(--brand-red);
     }
 
+    /* PRODUCT CARDS (Optimized 9:16 Aspect Ratio) */
     .product-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
     }
 
     .product-card {
@@ -261,25 +280,22 @@
       border-radius: var(--radius);
       border: 1px solid var(--border-color);
       overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
       display: flex;
-      flex-direction: column;
-    }
-
-    .product-card:hover {
-      transform: translateY(-6px);
-      box-shadow: var(--shadow);
+      flex-direction: row; /* Mobile friendly horizontal split */
+      align-items: stretch;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
     }
 
     .product-img {
-      width: 100%;
-      height: 280px;
-      background: #FAFAFA;
-      border-bottom: 1px solid var(--border-color);
+      width: 42%;
+      aspect-ratio: 9 / 16;
+      background: #FAF7F2;
+      border-right: 1px solid var(--border-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1rem;
+      padding: 0.6rem;
+      flex-shrink: 0;
     }
 
     .product-img img {
@@ -289,61 +305,73 @@
     }
 
     .product-details {
-      padding: 1.5rem;
+      padding: 1rem;
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      justify-content: space-between;
+      width: 58%;
     }
 
     .product-title {
       font-family: var(--font-heading);
-      font-size: 1.3rem;
+      font-size: 1.15rem;
       color: var(--brand-dark);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.3rem;
+      line-height: 1.2;
     }
 
     .product-desc {
-      font-size: 0.88rem;
+      font-size: 0.8rem;
       color: var(--brand-gray);
-      margin-bottom: 1.2rem;
-      flex-grow: 1;
+      margin-bottom: 0.8rem;
+    }
+
+    .price-tag {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--brand-red);
+    }
+
+    .weight-tag {
+      font-size: 0.78rem;
+      color: var(--brand-gray);
+      font-weight: 500;
     }
 
     .product-action {
-      margin-top: auto;
+      border-top: 1px dashed var(--border-color);
+      padding-top: 0.6rem;
+      margin-top: 0.4rem;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-top: 1px solid var(--border-color);
-      padding-top: 1rem;
+      flex-direction: column;
+      gap: 0.4rem;
     }
 
     /* HOW IT WORKS */
     .how-it-works {
       background: #F8F3EC;
-      padding: 5rem 5%;
+      padding: 4rem 4%;
       text-align: center;
     }
 
     .steps-grid {
-      max-width: 1100px;
-      margin: 3rem auto 0;
+      max-width: 1000px;
+      margin: 2rem auto 0;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
     }
 
     .step-card {
       background: white;
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       border-radius: var(--radius);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.04);
       border: 1px solid var(--border-color);
     }
 
     .step-number {
-      width: 48px;
-      height: 48px;
+      width: 40px;
+      height: 40px;
       background: var(--brand-red);
       color: white;
       border-radius: 50%;
@@ -351,62 +379,64 @@
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      font-size: 1.1rem;
-      margin: 0 auto 1.2rem;
+      margin: 0 auto 1rem;
     }
 
     /* FOOTER */
     footer {
       background: #14100F;
       color: #A39B98;
-      padding: 4rem 5% 2rem;
-      font-size: 0.9rem;
+      padding: 3.5rem 4% 2rem;
+      font-size: 0.88rem;
     }
 
     .footer-container {
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 3rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2.5rem;
     }
 
     .footer-col h3 {
       color: white;
       font-family: var(--font-heading);
-      margin-bottom: 1rem;
-      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.1rem;
     }
 
     .footer-col p {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
 
     .footer-bottom {
       text-align: center;
       border-top: 1px solid #2B2523;
-      padding-top: 2rem;
-      font-size: 0.8rem;
+      padding-top: 1.5rem;
+      font-size: 0.78rem;
     }
 
-    @media (max-width: 900px) {
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 3rem 5%;
+    @media (max-width: 600px) {
+      header {
+        padding: 0.6rem 4%;
       }
 
-      .hero-text h1 {
-        font-size: 2.4rem;
+      .btn {
+        padding: 0.65rem 1.1rem;
+        font-size: 0.85rem;
       }
 
-      .hero-ctas {
-        justify-content: center;
+      .hero-content h1 {
+        font-size: 1.8rem;
       }
 
-      nav {
-        display: none;
+      .hero-content p {
+        font-size: 0.95rem;
+      }
+
+      .product-title {
+        font-size: 1.05rem;
       }
     }
   </style>
@@ -419,9 +449,6 @@
       <img src="https://lh3.googleusercontent.com/d/1BOQm9Xw0A_eFbhqlFRYokwxuVke2cYJ3" alt="Flavoura Logo">
     </div>
     <nav>
-      <a href="#catalogue">Premix Range</a>
-      <a href="#how-it-works">3-Step Recipe</a>
-      <a href="#about">About Us</a>
       <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20inquire%20about%20Flavoura%20Instant%20Premixes" target="_blank" class="btn btn-whatsapp">
         WhatsApp Order
       </a>
@@ -429,18 +456,25 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section class="hero">
-    <div class="hero-text">
-      <span class="tagline-badge">Swaad Jo Maa Ki Yaad Dilae</span>
-      <h1>Restaurant-Quality Dishes at Home in Minutes.</h1>
-      <p>Handcrafted instant premix masalas made with real cashews, almonds, whole spices, and fried onions. Zero preservatives, zero hassle—just marinate and cook!</p>
-      <div class="hero-ctas">
-        <a href="#catalogue" class="btn btn-primary">Browse Premix Range</a>
-        <a href="https://youtube.com/@arshiaahmad" target="_blank" class="btn btn-whatsapp" style="background:#FF0000;">Watch Video Recipes ➔</a>
-      </div>
-    </div>
+  <section class="hero-container">
+    <div class="hero-backdrop-text">INSTANT PREMIX MASALA</div>
+    
+    <!-- Hero Banner Image at Top -->
     <div class="hero-banner-wrap">
-      <img src="https://lh3.googleusercontent.com/d/1w2JZ8WLBr-N9BgoWaOgVI7PIiAXLR2yW" alt="Flavoura Instant Premixes and Prepared Dishes Showcase">
+      <img src="https://lh3.googleusercontent.com/d/1w2JZ8WLBr-N9BgoWaOgVI7PIiAXLR2yW" alt="Flavoura Instant Premixes and Dishes Showcase">
+    </div>
+
+    <!-- Hero Content Below Image -->
+    <div class="hero-content">
+      <h1>Delicious Meals in Minutes. Zero Prep Needed.</h1>
+      <p>Fried onions, ginger, garlic, cashews, and whole spices are pre-blended inside! Perfect for college students, busy professionals, hostelers, and late-night craving fixes.</p>
+      
+      <div class="hero-ctas">
+        <a href="#catalogue" class="btn btn-primary">Browse Premixes (₹120)</a>
+        <a href="https://youtube.com/playlist?list=PLcIbgv4CULTTXqynXPDaPgVsT-ob_uLhc" target="_blank" class="btn btn-whatsapp" style="background:#FF0000;">
+          Watch Video Recipes ➔
+        </a>
+      </div>
     </div>
   </section>
 
@@ -448,20 +482,21 @@
   <section class="trust-bar">
     <div class="trust-container">
       <div class="trust-item">
-        <h4>🌿 100% Natural</h4>
-        <p>No added preservatives or chemical fillers.</p>
+        <h4>⚡ Zero Prep Cooking</h4>
+        <p>No chopping onions or peeling garlic. Just add water/curd!</p>
       </div>
       <div class="trust-item">
-        <h4>⏱ Ready in 10-15 Mins</h4>
-        <p>Onion, ginger, garlic, and spices pre-blended.</p>
+        <h4>🌿 100% Pure Vegetarian</h4>
+        <div class="veg-badge"><span class="veg-dot"></span> 100% Veg Premix</div>
+        <p style="margin-top:4px;">Premix is 100% veg. Great for Paneer, Veggies, Chicken & Fish!</p>
       </div>
       <div class="trust-item">
-        <h4>🥬 Veg & Non-Veg Compatible</h4>
-        <p>Ideal for Chicken, Paneer, Fish, Mutton & Veggies.</p>
+        <h4>🎓 Hostel & Busy Life Friendly</h4>
+        <p>Last-minute cooking without complex recipes or mess.</p>
       </div>
       <div class="trust-item">
-        <h4>🏡 Homecrafted Quality</h4>
-        <p>Thoughtfully created by Arshia's Kitchen, Kolkata.</p>
+        <h4>🚫 No Preservatives</h4>
+        <p>Handcrafted quality with real nuts & authentic spices.</p>
       </div>
     </div>
   </section>
@@ -469,14 +504,14 @@
   <!-- CATALOGUE -->
   <section class="products-section" id="catalogue">
     <div class="section-header">
-      <h2>Explore The Premix Collection</h2>
-      <p>Click on any variant to order directly via WhatsApp.</p>
+      <h2>Instant Premix Range</h2>
+      <p>Flat ₹120 per pack. Order directly via WhatsApp.</p>
     </div>
 
     <div class="filter-tabs">
       <button class="tab-btn active" onclick="filterProducts('all')">All Premixes</button>
-      <button class="tab-btn" onclick="filterProducts('gravy')">Base Gravies</button>
-      <button class="tab-btn" onclick="filterProducts('tikka')">Starters & Tikkas</button>
+      <button class="tab-btn" onclick="filterProducts('gravy')">Gravies</button>
+      <button class="tab-btn" onclick="filterProducts('tikka')">Starters</button>
     </div>
 
     <div class="product-grid">
@@ -487,56 +522,15 @@
           <img src="https://lh3.googleusercontent.com/d/1ZnNnrIqWTiJEBpkotLc4nMMLosV-teOf" alt="White Gravy Instant Premix">
         </div>
         <div class="product-details">
-          <h3 class="product-title">White Gravy Premix</h3>
-          <p class="product-desc">Velvety Mughlai style gravy made with cashew, melon seeds, white sesame, and aromatic spices.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">60g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20White%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          <div>
+            <h3 class="product-title">White Gravy</h3>
+            <p class="product-desc">Rich Mughlai gravy with cashew, melon seeds, and white sesame.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Red Gravy -->
-      <div class="product-card" data-category="gravy">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Red Gravy Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Red Gravy Premix</h3>
-          <p class="product-desc">Classic North Indian style gravy base with cashew, white sesame, milk powder, and red chilli.</p>
           <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Red%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tandoori -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1SDIxz_5Td3mHqZLl5Pi-LBLUPtnjJ1wW" alt="Tandoori Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Tandoori Premix</h3>
-          <p class="product-desc">Tangy, deeply spiced classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli powder.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">30g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Haryali -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1rmVdIN9BQxlbXgLN6IM0OX1A5E46PK6q" alt="Haryali Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Haryali Premix</h3>
-          <p class="product-desc">Fresh, minty green kebab marinade crafted with green chilli, kaju powder, fried onion, and spices.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">30g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20White%20Gravy%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -547,41 +541,34 @@
           <img src="https://lh3.googleusercontent.com/d/1AtIqdvmWTJBsqtHeWW-3201oYfc_F89g" alt="Golden Gravy Instant Premix">
         </div>
         <div class="product-details">
-          <h3 class="product-title">Golden Gravy Premix</h3>
-          <p class="product-desc">Rich cashew, melon seed & white sesame gravy base. Perfect for Shahi Paneer, Mix Veg, or Chicken.</p>
+          <div>
+            <h3 class="product-title">Golden Gravy</h3>
+            <p class="product-desc">Rich cashew & sesame base. Great for Shahi Paneer, Veggies or Chicken.</p>
+          </div>
           <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Golden%20Gravy%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
 
-      <!-- Fish Fry -->
-      <div class="product-card" data-category="tikka">
+      <!-- Red Gravy -->
+      <div class="product-card" data-category="gravy">
         <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Fish Fry Instant Premix">
+          <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Red Gravy Instant Premix">
         </div>
         <div class="product-details">
-          <h3 class="product-title">Fish Fry Premix</h3>
-          <p class="product-desc">Coastal, crispy, and lightly spiced marinade blended with ajwain, rai, cumin, and Kashmiri chilli.</p>
-          <div class="product-action">
-            <span style="font-weight:700;">20g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+          <div>
+            <h3 class="product-title">Red Gravy</h3>
+            <p class="product-desc">Classic North Indian gravy base with cashews, milk powder, and red chilli.</p>
           </div>
-        </div>
-      </div>
-
-      <!-- Smoked Angaara -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Smoked Angaara Instant Premix">
-        </div>
-        <div class="product-details">
-          <h3 class="product-title">Smoked Angaara Premix</h3>
-          <p class="product-desc">Smoky, rich, restaurant-style marinade enriched with cashews, almonds, and aromatic whole spices.</p>
           <div class="product-action">
-            <span style="font-weight:700;">40g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Smoked%20Angaara%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Red%20Gravy%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -592,11 +579,91 @@
           <img src="https://lh3.googleusercontent.com/d/1aji77tplyuewCGq5Utjl1_o500Up-AcC" alt="Achaari Instant Premix">
         </div>
         <div class="product-details">
-          <h3 class="product-title">Achaari Premix</h3>
-          <p class="product-desc">Tangy, zesty pickled flavor base infused with methi daana, saunf, zeera, mustard, and kalaunji.</p>
+          <div>
+            <h3 class="product-title">Achaari Premix</h3>
+            <p class="product-desc">Tangy, zesty pickle flavor base with saunf, zeera, mustard & kalaunji.</p>
+          </div>
           <div class="product-action">
-            <span style="font-weight:700;">80g Pack</span>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix" target="_blank" class="btn btn-whatsapp" style="padding: 0.4rem 1rem; font-size: 0.85rem;">Order</a>
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Haryali -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1rmVdIN9BQxlbXgLN6IM0OX1A5E46PK6q" alt="Haryali Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Haryali Premix</h3>
+            <p class="product-desc">Fresh minty green marinade with green chilli, kaju, and fried onion.</p>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angaara -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Angaara Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Angaara Premix</h3>
+            <p class="product-desc">Rich restaurant-style marinade with cashews, almonds, and spices.</p>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Angaara%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fish Fry -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Fish Fry Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Fish Fry Premix</h3>
+            <p class="product-desc">Crispy marinade with ajwain, rai, cumin, and Kashmiri chilli.</p>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tandoori -->
+      <div class="product-card" data-category="tikka">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1SDIxz_5Td3mHqZLl5Pi-LBLUPtnjJ1wW" alt="Tandoori Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Tandoori Premix</h3>
+            <p class="product-desc">Classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli.</p>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
           </div>
         </div>
       </div>
@@ -605,48 +672,46 @@
   </section>
 
   <!-- HOW IT WORKS -->
-  <section class="how-it-works" id="how-it-works">
+  <section class="how-it-works">
     <div class="section-header">
-      <h2>The Flavoura Recipe: 3 Steps</h2>
-      <p>Maximum Flavour. Minimum Effort.</p>
+      <h2>3-Step Cooking</h2>
+      <p>Maximum Flavour. Zero Hassle.</p>
     </div>
     <div class="steps-grid">
       <div class="step-card">
         <div class="step-number">1</div>
-        <h3>Marinate</h3>
-        <p>Mix premix with curd, water, or lemon juice along with your main ingredient.</p>
+        <h3>Mix Premix</h3>
+        <p>Combine premix with curd or water along with your paneer, veg, chicken or fish.</p>
       </div>
       <div class="step-card">
         <div class="step-number">2</div>
-        <h3>Add Oil</h3>
+        <h3>Add Oil / Butter</h3>
         <p>Heat oil or butter in a pan according to pack instructions.</p>
       </div>
       <div class="step-card">
         <div class="step-number">3</div>
-        <h3>Cook & Serve</h3>
-        <p>Simmer on low flame until cooked. Serve piping hot with naan or rice!</p>
+        <h3>Cook & Enjoy</h3>
+        <p>Simmer until tender and enjoy hot restaurant-quality food at home!</p>
       </div>
     </div>
   </section>
 
   <!-- FOOTER -->
-  <footer id="about">
+  <footer>
     <div class="footer-container">
       <div class="footer-col">
         <h3>FLAVOURA</h3>
-        <p>Swaad Jo Maa Ki Yaad Dilae</p>
-        <p>Homecrafted instant cooking premixes rooted in traditional recipes and authentic craftsmanship.</p>
+        <p>Instant cooking premixes made with natural ingredients, real nuts & whole spices.</p>
       </div>
       <div class="footer-col">
-        <h3>Direct Contact</h3>
+        <h3>Contact Us</h3>
         <p>📞 Phone: +91 9088055818</p>
         <p>📷 Instagram: @thearshiaahmad</p>
         <p>▶ YouTube: @arshiaahmad</p>
       </div>
       <div class="footer-col">
         <h3>FSSAI Compliance</h3>
-        <p><strong>Manufactured By:</strong><br>Arshia's Kitchen (FSSAI: 22819038000285)</p>
-        <p style="margin-top:0.5rem;"><strong>Marketed By:</strong><br>Fivian & Flavoura (FSSAI: 22824038000288)</p>
+        <p><strong>FSSAI Lic No:</strong> 22824038000288</p>
       </div>
     </div>
     <div class="footer-bottom">

@@ -96,9 +96,14 @@
       color: white;
     }
 
-    /* HERO SECTION WITH PRINTED TITLE IMAGE */
+    .btn-youtube {
+      background: #FF0000;
+      color: white;
+    }
+
+    /* HERO SECTION */
     .hero-container {
-      padding: 1rem 4% 1.5rem;
+      padding: 1rem 4% 0.5rem;
       max-width: 1280px;
       margin: 0 auto;
     }
@@ -109,7 +114,6 @@
       overflow: hidden;
       box-shadow: var(--shadow);
       border: 1px solid var(--border-color);
-      margin-bottom: 1.2rem;
       background: #FFF;
     }
 
@@ -120,19 +124,22 @@
       object-fit: cover;
     }
 
-    .hero-ctas {
-      display: flex;
-      gap: 0.8rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-top: 0.5rem;
+    /* SHIPPING BADGE */
+    .shipping-banner {
+      background: #FFF4E5;
+      border-top: 1px solid #F5E0C3;
+      border-bottom: 1px solid #F5E0C3;
+      text-align: center;
+      padding: 0.6rem 4%;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--brand-red-dark);
+      margin-top: 1rem;
     }
 
-    /* TRUST BAR */
+    /* TRUST BAR - 2x2 ON MOBILE, 4-IN-A-ROW ON DESKTOP */
     .trust-bar {
       background: #FFFFFF;
-      border-top: 1px solid var(--border-color);
-      border-bottom: 1px solid var(--border-color);
       padding: 1.5rem 4%;
     }
 
@@ -140,25 +147,40 @@
       max-width: 1280px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.8rem;
+    }
+
+    @media (min-width: 768px) {
+      .trust-container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.2rem;
+      }
+    }
+
+    .trust-item {
+      background: #FAF7F2;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.9rem;
       text-align: center;
     }
 
     .trust-item h4 {
-      font-size: 0.95rem;
+      font-size: 0.88rem;
       color: var(--brand-dark);
-      margin-bottom: 0.2rem;
+      margin-bottom: 0.25rem;
     }
 
     .trust-item p {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: var(--brand-gray);
+      line-height: 1.35;
     }
 
     /* PRODUCTS GRID */
     .products-section {
-      padding: 2.5rem 4%;
+      padding: 2rem 4% 1.5rem;
       max-width: 1280px;
       margin: 0 auto;
     }
@@ -175,31 +197,6 @@
       margin-bottom: 0.3rem;
     }
 
-    .filter-tabs {
-      display: flex;
-      justify-content: center;
-      gap: 0.6rem;
-      margin-bottom: 2rem;
-    }
-
-    .tab-btn {
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      border: 1px solid var(--border-color);
-      background: white;
-      cursor: pointer;
-      font-weight: 600;
-      font-size: 0.85rem;
-      color: var(--brand-gray);
-    }
-
-    .tab-btn.active, .tab-btn:hover {
-      background: var(--brand-red);
-      color: white;
-      border-color: var(--brand-red);
-    }
-
-    /* PRODUCT CARDS */
     .product-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -308,39 +305,68 @@
       gap: 0.3rem;
     }
 
-    /* HOW IT WORKS */
+    /* MID-PAGE CTA FOR YOUTUBE */
+    .catalogue-cta-wrap {
+      text-align: center;
+      margin: 2rem auto;
+      padding: 0 4%;
+    }
+
+    /* SIMPLIFIED 3-STEP COOKING */
     .how-it-works {
       background: #F8F3EC;
-      padding: 3rem 4%;
+      padding: 2.5rem 4%;
       text-align: center;
+      border-top: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
     }
 
-    .steps-grid {
-      max-width: 1000px;
+    .steps-flow {
+      max-width: 900px;
       margin: 1.5rem auto 0;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.2rem;
-    }
-
-    .step-card {
-      background: white;
-      padding: 1.5rem 1.2rem;
-      border-radius: var(--radius);
-      border: 1px solid var(--border-color);
-    }
-
-    .step-number {
-      width: 36px;
-      height: 36px;
-      background: var(--brand-red);
-      color: white;
-      border-radius: 50%;
       display: flex;
+      flex-direction: column;
+      gap: 1rem;
       align-items: center;
       justify-content: center;
-      font-weight: 700;
-      margin: 0 auto 0.8rem;
+    }
+
+    @media (min-width: 650px) {
+      .steps-flow {
+        flex-direction: row;
+        gap: 0;
+      }
+    }
+
+    .step-badge {
+      background: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      width: 100%;
+      max-width: 240px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+    }
+
+    .step-badge h3 {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      color: var(--brand-red);
+      letter-spacing: 1px;
+    }
+
+    .step-arrow {
+      font-size: 1.5rem;
+      color: var(--brand-gold);
+      font-weight: 800;
+      user-select: none;
+    }
+
+    @media (max-width: 649px) {
+      .step-arrow {
+        transform: rotate(90deg);
+        margin: -0.3rem 0;
+      }
     }
 
     /* FOOTER */
@@ -367,8 +393,14 @@
       font-size: 1rem;
     }
 
-    .footer-col p {
-      margin-bottom: 0.3rem;
+    .footer-col p, .footer-col a {
+      margin-bottom: 0.4rem;
+      display: block;
+    }
+
+    .footer-col a:hover {
+      color: #FFF;
+      text-decoration: underline;
     }
 
     .footer-bottom {
@@ -404,34 +436,32 @@
     </nav>
   </header>
 
-  <!-- HERO SECTION USING PRINTED TITLE HERO IMAGE -->
+  <!-- HERO SECTION WITH PRINTED TITLE HERO IMAGE (NO PREMATURE BUTTONS) -->
   <section class="hero-container">
     <div class="hero-banner-wrap">
       <img src="https://lh3.googleusercontent.com/d/1TNHCex2SNq5V95PPURlBXIl_xxZZWWW-" alt="Flavoura - Delicious Meals in Minutes">
     </div>
-
-    <div class="hero-ctas">
-      <a href="#catalogue" class="btn btn-primary">Browse Premixes (₹120)</a>
-      <a href="https://youtube.com/playlist?list=PLcIbgv4CULTTXqynXPDaPgVsT-ob_uLhc" target="_blank" class="btn btn-whatsapp" style="background:#FF0000;">
-        Watch Video Recipes ➔
-      </a>
-    </div>
   </section>
 
-  <!-- TRUST BAR -->
+  <!-- SHIPPING BANNER -->
+  <div class="shipping-banner">
+    🚚 Home Delivery Available | Shipping Pan-India via Courier
+  </div>
+
+  <!-- TRUST BAR - 2x2 ON MOBILE -->
   <section class="trust-bar">
     <div class="trust-container">
       <div class="trust-item">
         <h4>⚡ Zero Prep Cooking</h4>
-        <p>No chopping onions or peeling garlic. Just add water/curd!</p>
+        <p>No chopping onions or peeling garlic. Just add puree/curd and cook!</p>
       </div>
       <div class="trust-item">
         <h4>🌿 100% Pure Vegetarian</h4>
-        <p>Premix is 100% veg. Great for Paneer, Veggies, Chicken & Fish!</p>
+        <p>Premix is 100% veg but can be used with Paneer, Veggies & Chicken!</p>
       </div>
       <div class="trust-item">
-        <h4>🎓 Hostel & Busy Life Friendly</h4>
-        <p>Last-minute cooking without complex recipes or mess.</p>
+        <h4>🎓 Hostel & Busy Life</h4>
+        <p>Last-minute restaurant-style food without complex recipes or mess.</p>
       </div>
       <div class="trust-item">
         <h4>🚫 No Preservatives</h4>
@@ -440,23 +470,151 @@
     </div>
   </section>
 
-  <!-- CATALOGUE -->
+  <!-- CATALOGUE SECTION -->
   <section class="products-section" id="catalogue">
     <div class="section-header">
       <h2>Instant Premix Range</h2>
       <p>Flat ₹120 per pack. Order directly via WhatsApp.</p>
     </div>
 
-    <div class="filter-tabs">
-      <button class="tab-btn active" onclick="filterProducts('all')">All Premixes</button>
-      <button class="tab-btn" onclick="filterProducts('gravy')">Gravies</button>
-      <button class="tab-btn" onclick="filterProducts('tikka')">Starters</button>
-    </div>
-
     <div class="product-grid">
 
+      <!-- STARTERS / TIKKAS FIRST -->
+
+      <!-- Achaari -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1aji77tplyuewCGq5Utjl1_o500Up-AcC" alt="Achaari Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Achaari Premix</h3>
+            <p class="product-desc">Tangy, zesty pickle flavor base with saunf, zeera, mustard & kalaunji.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 400g Tomato Puree + 500g Protein + 80g Premix (entire bottle). Sauté & cook in oil.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Haryali -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1rmVdIN9BQxlbXgLN6IM0OX1A5E46PK6q" alt="Haryali Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Haryali Premix</h3>
+            <p class="product-desc">Fresh minty green marinade with green chilli, kaju, and fried onion.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Protein + 60g Premix (full bottle). Add oil/butter, pan fry & cook.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Angaara -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Angaara Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Angaara Premix</h3>
+            <p class="product-desc">Rich restaurant-style marinade with cashews, almonds, and spices.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Protein + 80g Premix (full bottle) + 200g Thick Curd. Cook till tender.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Angaara%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fish Fry -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Fish Fry Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Fish Fry Premix</h3>
+            <p class="product-desc">Crispy marinade with ajwain, rai, cumin, and Kashmiri chilli.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Fish Slices + 20g Premix (1/3 bottle) + 1 tbsp Lemon Juice. Shallow pan-fry.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tandoori -->
+      <div class="product-card">
+        <div class="product-img">
+          <img src="https://lh3.googleusercontent.com/d/1SDIxz_5Td3mHqZLl5Pi-LBLUPtnjJ1wW" alt="Tandoori Instant Premix">
+        </div>
+        <div class="product-details">
+          <div>
+            <h3 class="product-title">Tandoori Premix</h3>
+            <p class="product-desc">Classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli.</p>
+
+            <div class="quick-method-box">
+              <div class="quick-method-title">⚡ How to Cook (500g):</div>
+              <div class="quick-method-steps">
+                <span>• 500g Chicken/Paneer + 30g Premix (1/2 bottle) + 200g Curd + Lemon juice. Cook in pan.</span>
+              </div>
+            </div>
+          </div>
+          <div class="product-action">
+            <div>
+              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
+            </div>
+            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRAVY BASES AT THE BOTTOM -->
+
       <!-- White Gravy -->
-      <div class="product-card" data-category="gravy">
+      <div class="product-card">
         <div class="product-img">
           <img src="https://lh3.googleusercontent.com/d/1ZnNnrIqWTiJEBpkotLc4nMMLosV-teOf" alt="White Gravy Instant Premix">
         </div>
@@ -483,7 +641,7 @@
       </div>
 
       <!-- Red Gravy -->
-      <div class="product-card" data-category="gravy">
+      <div class="product-card">
         <div class="product-img">
           <img src="https://lh3.googleusercontent.com/d/1RNYkqEYmSXWtiaEQcJKiOdq6MwFpMqle" alt="Red Gravy Instant Premix">
         </div>
@@ -510,7 +668,7 @@
       </div>
 
       <!-- Golden Gravy -->
-      <div class="product-card" data-category="gravy">
+      <div class="product-card">
         <div class="product-img">
           <img src="https://lh3.googleusercontent.com/d/1AtIqdvmWTJBsqtHeWW-3201oYfc_F89g" alt="Golden Gravy Instant Premix">
         </div>
@@ -535,160 +693,33 @@
         </div>
       </div>
 
-      <!-- Achaari -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1aji77tplyuewCGq5Utjl1_o500Up-AcC" alt="Achaari Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Achaari Premix</h3>
-            <p class="product-desc">Tangy, zesty pickle flavor base with saunf, zeera, mustard & kalaunji.</p>
-
-            <div class="quick-method-box">
-              <div class="quick-method-title">⚡ How to Cook (500g):</div>
-              <div class="quick-method-steps">
-                <span>• 400g Tomato Puree + 500g Protein + 80g Premix (entire bottle). Sauté & cook in oil.</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Achaari%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Haryali -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1rmVdIN9BQxlbXgLN6IM0OX1A5E46PK6q" alt="Haryali Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Haryali Premix</h3>
-            <p class="product-desc">Fresh minty green marinade with green chilli, kaju, and fried onion.</p>
-
-            <div class="quick-method-box">
-              <div class="quick-method-title">⚡ How to Cook (500g):</div>
-              <div class="quick-method-steps">
-                <span>• 500g Protein + 60g Premix (full bottle). Add oil/butter, pan fry & cook.</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Haryali%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Angaara -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/15Y9dkWPW9dJcm2KsXGib4fZtB5gP5LRV" alt="Angaara Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Angaara Premix</h3>
-            <p class="product-desc">Rich restaurant-style marinade with cashews, almonds, and spices.</p>
-
-            <div class="quick-method-box">
-              <div class="quick-method-title">⚡ How to Cook (500g):</div>
-              <div class="quick-method-steps">
-                <span>• 500g Protein + 80g Premix (full bottle) + 200g Thick Curd. Cook till tender.</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Angaara%20Premix%20(80g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Fish Fry -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1b9cMhLQoNv9bkncIHA3JQF4mGJ4MLRpD" alt="Fish Fry Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Fish Fry Premix</h3>
-            <p class="product-desc">Crispy marinade with ajwain, rai, cumin, and Kashmiri chilli.</p>
-
-            <div class="quick-method-box">
-              <div class="quick-method-title">⚡ How to Cook (500g):</div>
-              <div class="quick-method-steps">
-                <span>• 500g Fish Slices + 20g Premix (1/3 bottle) + 1 tbsp Lemon Juice. Shallow pan-fry.</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Fish%20Fry%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tandoori -->
-      <div class="product-card" data-category="tikka">
-        <div class="product-img">
-          <img src="https://lh3.googleusercontent.com/d/1SDIxz_5Td3mHqZLl5Pi-LBLUPtnjJ1wW" alt="Tandoori Instant Premix">
-        </div>
-        <div class="product-details">
-          <div>
-            <h3 class="product-title">Tandoori Premix</h3>
-            <p class="product-desc">Classic tandoori marinade with aamchur, jayphal, and Kashmiri chilli.</p>
-
-            <div class="quick-method-box">
-              <div class="quick-method-title">⚡ How to Cook (500g):</div>
-              <div class="quick-method-steps">
-                <span>• 500g Chicken/Paneer + 30g Premix (1/2 bottle) + 200g Curd + Lemon juice. Cook in pan.</span>
-              </div>
-            </div>
-          </div>
-          <div class="product-action">
-            <div>
-              <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
-            </div>
-            <a href="https://wa.me/919088055818?text=Hi!%20I%20want%20to%20order%20Tandoori%20Premix%20(60g)" target="_blank" class="btn btn-whatsapp" style="padding: 0.5rem 0.8rem; font-size: 0.82rem;">Order on WhatsApp</a>
-          </div>
-        </div>
-      </div>
-
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- WATCH VIDEO RECIPES BUTTON PLACED UNDER CATALOGUE & ABOVE 3-STEP SECTION -->
+  <div class="catalogue-cta-wrap">
+    <a href="https://youtube.com/playlist?list=PLcIbgv4CULTTXqynXPDaPgVsT-ob_uLhc" target="_blank" class="btn btn-youtube">
+      ▶ Watch Video Recipes on YouTube
+    </a>
+  </div>
+
+  <!-- GENERALIZED 3-STEP PROCESS SECTION -->
   <section class="how-it-works">
     <div class="section-header">
-      <h2>3-Step Cooking</h2>
-      <p>Maximum Flavour. Zero Hassle.</p>
+      <h2>Simple 3-Step Cooking</h2>
+      <p>Quick, effortless restaurant-quality meals at home.</p>
     </div>
-    <div class="steps-grid">
-      <div class="step-card">
-        <div class="step-number">1</div>
-        <h3>Mix Premix</h3>
-        <p>Combine premix with curd or water along with your paneer, veg, chicken or fish.</p>
+    <div class="steps-flow">
+      <div class="step-badge">
+        <h3>MARINATE</h3>
       </div>
-      <div class="step-card">
-        <div class="step-number">2</div>
-        <h3>Add Oil / Butter</h3>
-        <p>Heat oil or butter in a pan according to pack instructions.</p>
+      <div class="step-arrow">➔</div>
+      <div class="step-badge">
+        <h3>ADD OIL</h3>
       </div>
-      <div class="step-card">
-        <div class="step-number">3</div>
-        <h3>Cook & Enjoy</h3>
-        <p>Simmer until tender and enjoy hot restaurant-quality food at home!</p>
+      <div class="step-arrow">➔</div>
+      <div class="step-badge">
+        <h3>COOK</h3>
       </div>
     </div>
   </section>
@@ -699,12 +730,13 @@
       <div class="footer-col">
         <h3>FLAVOURA</h3>
         <p>Instant cooking premixes made with natural ingredients, real nuts & whole spices.</p>
+        <p>🚚 Pan-India Shipping via Courier</p>
       </div>
       <div class="footer-col">
-        <h3>Contact Us</h3>
+        <h3>Contact & Socials</h3>
         <p>📞 Phone: +91 9088055818</p>
-        <p>📷 Instagram: @thearshiaahmad</p>
-        <p>▶ YouTube: @arshiaahmad</p>
+        <p>📷 Instagram: <a href="https://instagram.com/thearshiaahmad" target="_blank">@thearshiaahmad</a></p>
+        <p>▶ YouTube: <a href="https://www.youtube.com/@arshiaahmad" target="_blank">@arshiaahmad</a></p>
       </div>
       <div class="footer-col">
         <h3>FSSAI Compliance</h3>
@@ -716,21 +748,5 @@
     </div>
   </footer>
 
-  <script>
-    function filterProducts(category) {
-      const buttons = document.querySelectorAll('.tab-btn');
-      buttons.forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-
-      const cards = document.querySelectorAll('.product-card');
-      cards.forEach(card => {
-        if (category === 'all' || card.getAttribute('data-category') === category) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    }
-  </script>
 </body>
 </html>

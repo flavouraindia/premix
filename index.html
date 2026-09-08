@@ -548,6 +548,32 @@
       border-color: var(--brand-red);
     }
 
+    /* PHONE INPUT WITH FIXED +91 PREFIX */
+    .phone-input-wrap {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: #FFFDF9;
+      overflow: hidden;
+    }
+
+    .phone-prefix {
+      background: #EFE8DC;
+      color: var(--brand-dark);
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 0.7rem;
+      border-right: 1px solid var(--border-color);
+      user-select: none;
+    }
+
+    .phone-input-wrap input {
+      border: none !important;
+      border-radius: 0 !important;
+      padding: 0.6rem 0.8rem;
+    }
+
     .notice-box {
       background: #FFF5E5;
       border: 1px solid var(--brand-gold);
@@ -1239,8 +1265,20 @@
           <input type="text" id="custName" required placeholder="e.g. Rahul Sharma">
         </div>
         <div class="form-group">
-          <label>Phone Number *</label>
-          <input type="tel" id="custPhone" required placeholder="e.g. 9830012345">
+          <label>Phone Number (10 Digits) *</label>
+          <div class="phone-input-wrap">
+            <span class="phone-prefix">+91</span>
+            <input 
+              type="tel" 
+              id="custPhone" 
+              required 
+              placeholder="9830012345" 
+              maxlength="10" 
+              pattern="[0-9]{10}"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+              title="Please enter a valid 10-digit mobile number"
+            >
+          </div>
         </div>
         <div class="form-group">
           <label>Complete Delivery Address *</label>
@@ -1369,7 +1407,8 @@
       e.preventDefault();
 
       const name = document.getElementById('custName').value.trim();
-      const phone = document.getElementById('custPhone').value.trim();
+      const rawPhone = document.getElementById('custPhone').value.trim();
+      const fullPhone = `+91 ${rawPhone}`;
       const address = document.getElementById('custAddress').value.trim();
 
       // 1. Build Item Summary
@@ -1390,7 +1429,7 @@
           color: 12068138, // Flavoura Brand Red
           fields: [
             { name: "Customer Name", value: name, inline: true },
-            { name: "Phone Number", value: phone, inline: true },
+            { name: "Phone Number", value: fullPhone, inline: true },
             { name: "Delivery Address", value: address },
             { name: "Items Ordered", value: itemsSummary || "None" },
             { name: "Total Packs", value: `${totalQty} packs`, inline: true },
@@ -1413,7 +1452,7 @@
       // 3. WHATSAPP REDIRECT FOR CUSTOMER
       const message = `*NEW FLAVOURA ORDER REQUEST*\n\n` +
                       `*Customer Name:* ${name}\n` +
-                      `*Phone:* ${phone}\n` +
+                      `*Phone:* ${fullPhone}\n` +
                       `*Delivery Address:* ${address}\n\n` +
                       `*ITEMS ORDERED:*\n${itemsSummary}\n` +
                       `*Item Subtotal (${totalQty} packs):* ₹${totalQty * itemPrice}\n\n` +

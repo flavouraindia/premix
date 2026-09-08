@@ -103,7 +103,7 @@
       width: 100%;
       text-align: center;
       cursor: pointer;
-      font-weight: 550; /* Updated to 550 */
+      font-weight: 550;
       transition: background 0.2s ease;
     }
 
@@ -111,7 +111,32 @@
       background: #EFE8DC;
     }
 
-    /* QUANTITY CONTROLLER ON CARDS */
+    /* ADD TO CART BUTTON & QUANTITY CONTROLLER */
+    .cart-action-wrap {
+      margin-top: 0.2rem;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      background: var(--brand-red);
+      color: white;
+      border: none;
+      padding: 0.5rem 0.8rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.1s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+    }
+
+    .btn-add-cart:hover {
+      background: var(--brand-red-dark);
+    }
+
     .qty-control {
       display: flex;
       align-items: center;
@@ -120,13 +145,12 @@
       border: 1px solid var(--border-color);
       border-radius: 8px;
       overflow: hidden;
-      margin-top: 0.2rem;
     }
 
     .qty-btn {
       background: none;
       border: none;
-      width: 32px;
+      width: 34px;
       height: 32px;
       font-size: 1.1rem;
       font-weight: 700;
@@ -789,8 +813,6 @@
 
     <div class="product-grid">
 
-      <!-- STARTERS / TIKKAS FIRST -->
-
       <!-- Achaari -->
       <div class="product-card">
         <div class="product-img">
@@ -813,10 +835,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Achaari Premix', 'This premix contains methi daana, saunf, zeera, mustard, kalaunji, Kashmiri red chilli, coriander seeds, citric acid, onion, ginger, and garlic powders, black salt, garam masala, and haldi.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Achaari Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Achaari Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Achaari Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Achaari Premix">
+              <button class="btn-add-cart" onclick="updateQty('Achaari Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -844,10 +864,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Haryali Premix', 'This premix contains dalchini, cardamom (black and green), clove, black pepper, star anise, kaju powder, onion and milk powders, zeera, coriander, ginger, garam masala, garlic flakes, green chilli, fried onion, salt and food colour.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Haryali Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Haryali Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Haryali Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Haryali Premix">
+              <button class="btn-add-cart" onclick="updateQty('Haryali Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -875,10 +893,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Angaara Premix', 'This premix contains cashew, almond, dalchini, green cardamom, Kashmiri lal mirch, clove, black pepper, star anise, ginger, milk, and garlic powders, cornflour, Kashmiri red chilli, coriander, cumin, and garam masala powders, salt, kasuri methi, and fried onion.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Angaara Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Angaara Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Angaara Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Angaara Premix">
+              <button class="btn-add-cart" onclick="updateQty('Angaara Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -906,10 +922,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Fish Fry Premix', 'This premix contains coriander powder, Kashmiri red chilli, garlic and ginger powders, cumin powder, turmeric, chaat masala, garam masala, rai, and ajwain.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Fish Fry Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Fish Fry Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Fish Fry Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Fish Fry Premix">
+              <button class="btn-add-cart" onclick="updateQty('Fish Fry Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -937,16 +951,12 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Tandoori Premix', 'This premix contains Kashmiri chilli powder, zeera powder, chaat masala, aamchur powder, salt, ginger powder, garlic powder, garam masala and jayphal powder.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Tandoori Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Tandoori Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Tandoori Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Tandoori Premix">
+              <button class="btn-add-cart" onclick="updateQty('Tandoori Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- GRAVY BASES AT THE BOTTOM -->
 
       <!-- White Gravy -->
       <div class="product-card">
@@ -971,10 +981,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(60g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('White Gravy Premix', 'This premix contains cashew, melon seeds, white sesame, milk powder, chaat masala, salt, cornflour, onion powder, garlic powder, ginger powder, sugar, garam masala, and kasuri methi.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('White Gravy Premix', -1)">-</button>
-              <span class="qty-value" id="qty-White Gravy Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('White Gravy Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-White Gravy Premix">
+              <button class="btn-add-cart" onclick="updateQty('White Gravy Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1003,10 +1011,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Red Gravy Premix', 'This premix contains cashew, white sesame, melon seeds, milk powder, chaat masala, onion powder, garlic powder, ginger powder, red chilli powder, garam masala, cornflour, salt, sugar, kasuri methi, ghee, and red food color.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Red Gravy Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Red Gravy Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Red Gravy Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Red Gravy Premix">
+              <button class="btn-add-cart" onclick="updateQty('Red Gravy Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1034,10 +1040,8 @@
               <span class="price-tag">₹120</span> <span class="weight-tag">(80g Pack)</span>
             </div>
             <button class="btn-ingredients" onclick="openIngredientsModal('Golden Gravy Premix', 'This premix contains cashew, melon seeds, white sesame, milk powder, chaat masala, salt, onion powder, garlic powder, ginger powder, haldi, red chilli powder, coriander powder, garam masala, kasuri methi, and sugar.')">🔍 Check Ingredients</button>
-            <div class="qty-control">
-              <button class="qty-btn" onclick="updateQty('Golden Gravy Premix', -1)">-</button>
-              <span class="qty-value" id="qty-Golden Gravy Premix">0</span>
-              <button class="qty-btn" onclick="updateQty('Golden Gravy Premix', 1)">+</button>
+            <div class="cart-action-wrap" id="action-Golden Gravy Premix">
+              <button class="btn-add-cart" onclick="updateQty('Golden Gravy Premix', 1)">🛒 Add to Cart</button>
             </div>
           </div>
         </div>
@@ -1250,7 +1254,7 @@
     </div>
   </div>
 
-  <!-- JAVASCRIPT FOR ACCORDION, CART & MODALS -->
+  <!-- JAVASCRIPT FOR CART, ACCORDION, MODALS & DISCORD WEBHOOK -->
   <script>
     // CART STATE
     const cart = {};
@@ -1264,13 +1268,30 @@
         delete cart[productName];
       }
 
-      // Update Card UI Display
-      const qtyElem = document.getElementById(`qty-${productName}`);
-      if (qtyElem) {
-        qtyElem.innerText = cart[productName] || 0;
-      }
-
+      // Update Product Card Action UI
+      renderProductCardAction(productName);
       renderCartBar();
+    }
+
+    function renderProductCardAction(productName) {
+      const container = document.getElementById(`action-${productName}`);
+      if (!container) return;
+
+      const currentQty = cart[productName] || 0;
+
+      if (currentQty > 0) {
+        container.innerHTML = `
+          <div class="qty-control">
+            <button class="qty-btn" onclick="updateQty('${productName}', -1)">-</button>
+            <span class="qty-value">${currentQty}</span>
+            <button class="qty-btn" onclick="updateQty('${productName}', 1)">+</button>
+          </div>
+        `;
+      } else {
+        container.innerHTML = `
+          <button class="btn-add-cart" onclick="updateQty('${productName}', 1)">🛒 Add to Cart</button>
+        `;
+      }
     }
 
     function renderCartBar() {
@@ -1343,14 +1364,15 @@
       }
     }
 
-    // Submit Order Form via WhatsApp
-    function submitOrder(e) {
+    // SUBMIT ORDER WITH DISCORD WEBHOOK LOGGING + WHATSAPP REDIRECT
+    async function submitOrder(e) {
       e.preventDefault();
 
       const name = document.getElementById('custName').value.trim();
       const phone = document.getElementById('custPhone').value.trim();
       const address = document.getElementById('custAddress').value.trim();
 
+      // 1. Build Item Summary
       let itemsSummary = '';
       let totalQty = 0;
       for (let item in cart) {
@@ -1358,6 +1380,37 @@
         totalQty += cart[item];
       }
 
+      // 2. SPICE BOT DISCORD WEBHOOK
+      const discordWebhookUrl = "https://discord.com/api/webhooks/1546962743414759545/mPdx-s3alhHKIW08zIj30GA0dUboM2_suBbnYdUD0HQbsmpIeqYdt11LUcX1VYhZZDfC";
+
+      const discordPayload = {
+        username: "Spice Bot",
+        embeds: [{
+          title: "🛒 NEW FLAVOURA ORDER REQUEST",
+          color: 12068138, // Flavoura Brand Red
+          fields: [
+            { name: "Customer Name", value: name, inline: true },
+            { name: "Phone Number", value: phone, inline: true },
+            { name: "Delivery Address", value: address },
+            { name: "Items Ordered", value: itemsSummary || "None" },
+            { name: "Total Packs", value: `${totalQty} packs`, inline: true },
+            { name: "Subtotal", value: `₹${totalQty * itemPrice}`, inline: true }
+          ],
+          timestamp: new Date().toISOString()
+        }]
+      };
+
+      try {
+        await fetch(discordWebhookUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(discordPayload)
+        });
+      } catch (err) {
+        console.error("Spice Bot Discord Webhook Error:", err);
+      }
+
+      // 3. WHATSAPP REDIRECT FOR CUSTOMER
       const message = `*NEW FLAVOURA ORDER REQUEST*\n\n` +
                       `*Customer Name:* ${name}\n` +
                       `*Phone:* ${phone}\n` +
